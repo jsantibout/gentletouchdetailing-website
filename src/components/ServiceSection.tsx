@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -8,17 +10,18 @@ interface ServiceSectionProps {
   features: string[];
   price: string;
   image: string;
+  imagePosition?: string;
   index: number;
 }
 
-const ServiceSection = ({ title, description, features, price, image, index }: ServiceSectionProps) => {
+const ServiceSection = ({ title, description, features, price, image, imagePosition = "center", index }: ServiceSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const isEven = index % 2 === 0;
 
   return (
     <section ref={ref} className="min-h-screen flex items-center py-20 md:py-0">
-      <div className={`container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isEven ? '' : 'lg:direction-rtl'}`}>
+      <div className={`container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-center ${isEven ? '' : 'lg:direction-rtl'}`}>
         {/* Text content */}
         <motion.div
           initial={{ opacity: 0, x: isEven ? -40 : 40 }}
@@ -60,6 +63,7 @@ const ServiceSection = ({ title, description, features, price, image, index }: S
               src={image}
               alt={title}
               className="w-full aspect-square object-cover"
+              style={{ objectPosition: imagePosition }}
               loading="lazy"
             />
             <div className="absolute inset-0 border border-gold-subtle" />

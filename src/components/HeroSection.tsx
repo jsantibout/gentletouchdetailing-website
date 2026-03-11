@@ -1,5 +1,6 @@
+"use client";
+
 import { motion } from "framer-motion";
-import logo from "@/assets/logo.png";
 
 const HeroSection = () => {
   return (
@@ -14,7 +15,7 @@ const HeroSection = () => {
         className="relative z-10 flex flex-col items-center"
       >
         <img
-          src={logo}
+          src="/assets/logo.png"
           alt="Gentle Touch Detailing"
           className="w-64 md:w-80 lg:w-96 mb-12"
         />
