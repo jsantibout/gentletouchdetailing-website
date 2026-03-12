@@ -1,11 +1,9 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const BookingSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -14,11 +12,12 @@ const BookingSection = () => {
   };
 
   return (
-    <section ref={ref} id="booking" className="min-h-screen flex items-center py-20">
+    <section id="booking" className="min-h-screen flex items-center py-20">
       <div className="container mx-auto px-6 md:px-12 lg:px-20 max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
           className="text-center mb-14"
         >
@@ -43,7 +42,8 @@ const BookingSection = () => {
         ) : (
           <motion.form
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
             onSubmit={handleSubmit}
             className="space-y-6"

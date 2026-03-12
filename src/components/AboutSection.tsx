@@ -1,18 +1,17 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const AboutSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} className="min-h-screen flex items-center py-20">
+    <section
+      className="min-h-screen flex items-center py-20 bg-background"
+    >
       <div className="container mx-auto px-6 md:px-12 lg:px-20 max-w-4xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
           <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-6 block">

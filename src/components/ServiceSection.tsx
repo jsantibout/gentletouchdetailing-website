@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useMemo } from "react";
 
 interface ServiceSectionProps {
   title: string;
@@ -15,17 +14,16 @@ interface ServiceSectionProps {
 }
 
 const ServiceSection = ({ title, description, features, price, image, imagePosition = "center", index }: ServiceSectionProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const isEven = index % 2 === 0;
+  const isEven = useMemo(() => index % 2 === 0, [index]);
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center py-20 md:py-0">
+    <section className="min-h-screen flex items-center py-20 md:py-0">
       <div className={`container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-center ${isEven ? '' : 'lg:direction-rtl'}`}>
         {/* Text content */}
         <motion.div
           initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className={`${!isEven ? 'lg:order-2' : ''}`}
         >
@@ -54,7 +52,8 @@ const ServiceSection = ({ title, description, features, price, image, imagePosit
         {/* Image */}
         <motion.div
           initial={{ opacity: 0, x: isEven ? 40 : -40 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className={`${!isEven ? 'lg:order-1' : ''}`}
         >
