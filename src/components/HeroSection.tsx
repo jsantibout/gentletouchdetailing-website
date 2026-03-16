@@ -36,6 +36,23 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
+      {/* Promo video */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="relative z-10 w-full max-w-3xl px-6 mt-12"
+      >
+        <video
+          src="/assets/promo-video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full rounded-lg"
+        />
+      </motion.div>
+
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}

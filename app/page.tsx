@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import BookingSection from "@/components/BookingSection";
 import NavigationOverlay from "@/components/NavigationOverlay";
 import FooterSection from "@/components/FooterSection";
+import Header from "@/components/Header";
 
 const services = [
   {
@@ -55,6 +56,7 @@ const services = [
 export default function Home() {
   return (
     <div className="bg-background">
+      <Header />
       <HeroSection />
 
       <div id="services">

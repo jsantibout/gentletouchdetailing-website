@@ -24,7 +24,7 @@ const NavigationOverlay = () => {
       {/* Persistent button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-secondary border border-border flex items-center justify-center hover:border-primary transition-colors"
+        className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-secondary border border-border flex md:hidden items-center justify-center hover:border-primary transition-colors"
         aria-label="Toggle navigation"
       >
         <div className="flex flex-col gap-1.5">
