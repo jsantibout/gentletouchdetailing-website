@@ -7,21 +7,25 @@ import FooterSection from "@/components/FooterSection";
 import Header from "@/components/Header";
 
 const services = [
+ 
   {
-    title: "Exterior Restoration",
+    title: "Vehicle Detail",
     description:
-      "A meticulous multi-stage process that removes imperfections and restores your vehicle's paint to a mirror-like finish. Every panel is hand-corrected to reveal the depth and clarity hidden beneath surface damage.",
+      "Bring your ride back to life with a deep, head-to-toe refresh. From gleaming paint to spotless interiors, every inch gets the care it deserves-because your car should look as good as it drives.",
     features: [
-      "Clay bar decontamination",
-      "Multi-stage paint correction",
-      "Hand polish to mirror finish",
-      "Wheel & tire restoration",
-      "Glass clarity treatment",
+      "Hand wash",
+      "Ceramic spray finish",
+      "Tire dressing",
+      "Trim treatment",
+      "Windows inside/outside",
+      "Vacuum",
+      "Leather conditioning",
+      "Interior stain removal",
+      "Interior wipe down",
+      "Odor elimination"
     ],
-    price: "From $350",
-    image: "/assets/Gemini_luxuary-detail-image.png",
-    // image: "/assets/luxury-car-detailing-services-photo.jpg",
-    imagePosition: "left center",
+    price: "From $200",
+    image: "/assets/service-protection.jpg",
   },
   {
     title: "Interior Revival",
@@ -34,22 +38,24 @@ const services = [
       "Headliner treatment",
       "Odor elimination",
     ],
-    price: "From $275",
+    price: "From $100",
     image: "/assets/service-interior.jpg",
-  },
+  }, 
   {
-    title: "Ceramic Protection",
+    title: "Vehicle Wash",
     description:
-      "The ultimate shield for your vehicle's finish. Our ceramic coating bonds at a molecular level, creating a hydrophobic barrier that repels water, UV rays, and contaminants for years of lasting protection.",
+      "Wash away the dirt and roll out shining. A quick, refreshing clean that leaves your car sparkling, streak-free, and ready for the road",
     features: [
-      "9H ceramic coating application",
-      "5-year durability guarantee",
-      "Hydrophobic surface treatment",
-      "UV & chemical resistance",
-      "Enhanced gloss amplification",
+      "Hand wash",
+      "Ceramic spray finish",
+      "Tire dressing",
+      "Windows outside",
+      "Vacuum",
     ],
-    price: "From $800",
-    image: "/assets/service-protection.jpg",
+    price: "From $60",
+    image: "/assets/Gemini_luxuary-detail-image.png",
+    // image: "/assets/luxury-car-detailing-services-photo.jpg",
+    imagePosition: "left center",
   },
 ];
 

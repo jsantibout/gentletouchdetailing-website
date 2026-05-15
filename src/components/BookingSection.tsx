@@ -38,7 +38,7 @@ const BookingSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <Cal
-            calLink="joseph-santibout"
+            calLink="joseph-santibout-0m75f4"
             style={{ width: "100%", height: "100%", overflow: "scroll" }}
             config={{ layout: "month_view" }}
           />
