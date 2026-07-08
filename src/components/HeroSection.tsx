@@ -1,8 +1,25 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { Volume2, VolumeX } from "lucide-react";
 
 const HeroSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const nextMuted = !isMuted;
+    video.muted = nextMuted;
+    setIsMuted(nextMuted);
+
+    if (!nextMuted) {
+      video.play().catch(() => {});
+    }
+  };
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center bg-background overflow-hidden mb-16 md:mb-24">
       {/* Subtle radial glow */}
@@ -43,14 +60,25 @@ const HeroSection = () => {
         transition={{ delay: 1.2, duration: 0.8 }}
         className="relative z-10 w-full max-w-3xl px-6 mt-12"
       >
-        <video
-          src="/assets/promo-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full rounded-lg"
-        />
+        <div className="relative">
+          <video
+            ref={videoRef}
+            src="/assets/promo-video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full rounded-lg"
+          />
+          <button
+            type="button"
+            onClick={toggleMute}
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+            className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground backdrop-blur-sm transition-colors hover:bg-background"
+          >
+            {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+          </button>
+        </div>
       </motion.div>
 
       {/* Scroll indicator */}
